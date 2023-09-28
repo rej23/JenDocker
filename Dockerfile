@@ -1,6 +1,6 @@
 FROM python:3.8
-COPY ..
-RUN pip install requirement.txt
+COPY . .
+RUN pip install -r requirements.txt
 ENV YOUR_NAME rej
-EXPOSE 550
+EXPOSE 5500
 ENTRYPOINT ["python" , "app.py"]
