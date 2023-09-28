@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("clean up"){
             steps {
-                sh "docker rm -f $(docker ps -aq) || true"
+                sh "docker rm -f \$(docker ps -aq) || true"
                 }
             }
 
@@ -13,6 +13,7 @@ pipeline{
                 sh "sh deploy.sh ."
                 }
             }   
+       
             
         }
     }
