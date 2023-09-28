@@ -7,31 +7,19 @@ pipeline{
                 sh 'sh get-docker.sh'
             }
         }
-        
-        stage("Reboot"){
-            steps {
-                sh "sudo reboot"
-                }
-            }
     
         stage("clean up"){
             steps {
-                sh "docker system prune -af"
+                sh "docker rm -f $(docker ps -aq) || true"
                 }
             }
 
 
         stage("Build Docker Image"){
             steps {
-                sh "docker build -t myimage ."
+                sh "sh deploy.sh ."
                 }
             }   
-
-
-        stage(""){
-            steps {
-                sh ""
-                }
-            }
+            
         }
     }
