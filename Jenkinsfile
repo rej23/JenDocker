@@ -23,14 +23,14 @@ pipeline{
 
         stage("Build Docker Image"){
             steps {
-                sh "docker build -t "
+                sh "docker build -t myimage ."
                 }
             }   
 
 
-        stage("deploy stage"){
+        stage(""){
             steps {
-                sh "echo 'hello rej'"
+                sh ""
                 }
             }
         }
